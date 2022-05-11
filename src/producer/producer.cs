@@ -10,6 +10,7 @@ class Producer {
         }
 
         IConfiguration configuration = new ConfigurationBuilder()
+            .AddIniFile(args[0])
             .Build();
 
         const string topic = "purchases";
