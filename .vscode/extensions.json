@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csharp",
+        "ms-python.python",
+        "ms-azuretools.vscode-bicep",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "hediet.vscode-drawio",
+        "jeppeandersen.vscode-kafka",
+        "eamodio.gitlens",
+        "visualstudioexptteam.vscodeintellicode"
+    ]
+}
