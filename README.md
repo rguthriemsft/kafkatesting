@@ -17,6 +17,9 @@
 1. Test cluster using command line
    1. Produce and consume from CLI
    1. Produce from CLI - see the messages in the UI and the VS Code Extension
+1. [Create python project](https://developer.confluent.io/get-started/python/#create-project)
+   1. Hint: You need to use 3.9
+   1. Install `confluent-kafka` with pip
 1. Create simple python producer
 1. Create simple python consumer
 1. Add method to send batch of messages in producer
