@@ -1,9 +1,10 @@
-# kafkatesting
+# kafka
 
 ## Ramp up Plan
 
 1. [Getting started with Kafka](https://developer.confluent.io/learn-kafka/architecture/get-started/)
 1. Use docker compose to create Kafka cluster
+   1. `./start-kafka`
 1. Create Topics - learn about different options while creating topics
 1. Test cluster using command line
 1. Create simple python producer
