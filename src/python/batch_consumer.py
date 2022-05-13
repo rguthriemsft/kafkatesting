@@ -17,10 +17,11 @@ if __name__ == '__main__':
     c.subscribe(topics, on_assign=print_assignment)
 
     while True:
-        msg = c.poll(1)
+        msg = c.poll(10)
         if msg is None:
             continue
         else:
             # Proper message
             sys.stderr.write(f'{msg.topic()} [{msg.partition()}] at offset {msg.offset()} with key {msg.key()}:\n')
             print(msg.value())
+            c.commit()

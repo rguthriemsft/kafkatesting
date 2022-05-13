@@ -17,12 +17,14 @@ if __name__ == '__main__':
 
     p.init_transactions()
     batch = []
-    for n in range (1, 16):
+    for n in range (1, 100):
         batch.append(f'message {n}')
-        if n%5 == 0:
+        if n%2 == 0:
             p.begin_transaction()
             for lines in batch:
                 p.produce(topic, lines, callback=delivery_callback)
+                if (lines == "message 30"):
+                    raise ValueError
             batch = []
             p.commit_transaction()
             p.poll(2)

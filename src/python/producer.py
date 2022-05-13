@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     # Producer configuration
     # See https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
-    conf = {'bootstrap.servers': broker}
+    conf = {'bootstrap.servers': broker, 'batch.num.messages': 12000, 'batch.size': 1200000}
 
     # Create Producer instance
     p = Producer(**conf)
