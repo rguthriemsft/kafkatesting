@@ -20,6 +20,6 @@ while True:
         print(f"Consumer error: {msg.error()}")
         continue
 
-    print(f"Received message: {msg.value().decode('utf-8')}")
+    print(f"Received message [{msg.partition()}]: {msg.value().decode('utf-8')}")
 
 c.close()
