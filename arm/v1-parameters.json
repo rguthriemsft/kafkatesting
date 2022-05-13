@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterName": {
-            "value": "rguthriekafka"
+            "value": "kafkahdinsight"
         },
         "clusterLoginUserName": {
             "value": "admin"
@@ -24,9 +24,9 @@
             "value": "4.0"
         },
         "sshUserName": {
-            "value": "kafkauser"
+            "value": "richard"
         },
-        "sshPublicKey": {
+        "sshPassword": {
             "value": null
         },
         "minTlsVersionNumber": {

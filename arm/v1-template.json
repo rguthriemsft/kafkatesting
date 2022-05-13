@@ -56,8 +56,11 @@
                 "description": "These credentials can be used to remotely access the cluster."
             }
         },
-        "sshPublicKey": {
-            "type": "securestring"
+        "sshPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
         },
         "minTlsVersionNumber": {
             "type": "string"
@@ -70,7 +73,7 @@
             "type": "Microsoft.HDInsight/clusters",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "Microsoft.Storage/storageAccounts/rguthriekafkahdistorage"
+                "Microsoft.Storage/storageAccounts/kafkahdinsighhdistorage"
             ],
             "tags": {},
             "zones": null,
@@ -94,11 +97,11 @@
                 "storageProfile": {
                     "storageaccounts": [
                         {
-                            "name": "rguthriekafkahdistorage.blob.core.windows.net",
+                            "name": "kafkahdinsighhdistorage.blob.core.windows.net",
                             "isDefault": true,
-                            "container": "rguthriekafka-2022-05-11t22-55-47-142z",
-                            "key": "[listKeys('Microsoft.Storage/storageAccounts/rguthriekafkahdistorage', '2015-05-01-preview').key1]",
-                            "resourceId": "/subscriptions/ed2c4253-6227-43ef-97e3-4a5fff36888e/resourceGroups/twohat/providers/Microsoft.Storage/storageAccounts/rguthriekafkahdistorage"
+                            "container": "kafkahdinsight-2022-05-10t20-43-25-341z",
+                            "key": "[listKeys('Microsoft.Storage/storageAccounts/kafkahdinsighhdistorage', '2015-05-01-preview').key1]",
+                            "resourceId": "/subscriptions/ed2c4253-6227-43ef-97e3-4a5fff36888e/resourceGroups/twohat/providers/Microsoft.Storage/storageAccounts/kafkahdinsighhdistorage"
                         }
                     ]
                 },
@@ -115,13 +118,7 @@
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
                                     "username": "[parameters('sshUserName')]",
-                                    "sshProfile": {
-                                        "publicKeys": [
-                                            {
-                                                "certificateData": "[parameters('sshPublicKey')]"
-                                            }
-                                        ]
-                                    }
+                                    "password": "[parameters('sshPassword')]"
                                 },
                                 "windowsOperatingSystemProfile": null
                             },
@@ -139,13 +136,7 @@
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
                                     "username": "[parameters('sshUserName')]",
-                                    "sshProfile": {
-                                        "publicKeys": [
-                                            {
-                                                "certificateData": "[parameters('sshPublicKey')]"
-                                            }
-                                        ]
-                                    }
+                                    "password": "[parameters('sshPassword')]"
                                 },
                                 "windowsOperatingSystemProfile": null
                             },
@@ -168,13 +159,7 @@
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
                                     "username": "[parameters('sshUserName')]",
-                                    "sshProfile": {
-                                        "publicKeys": [
-                                            {
-                                                "certificateData": "[parameters('sshPublicKey')]"
-                                            }
-                                        ]
-                                    }
+                                    "password": "[parameters('sshPassword')]"
                                 },
                                 "windowsOperatingSystemProfile": null
                             },
@@ -189,7 +174,7 @@
         },
         {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "rguthriekafkahdistorage",
+            "name": "kafkahdinsighhdistorage",
             "apiVersion": "2015-05-01-preview",
             "location": "westus3",
             "properties": {
