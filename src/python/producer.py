@@ -7,7 +7,9 @@ from config import Configuration
 if __name__ == '__main__':
 
     base_config = Configuration()
-    producer = Producer(base_config.default)
+    producer = Producer(base_config.producer)
+    producer.init_transactions()
+
     topic = base_config.custom['topic_name']
 
     def delivery_callback(err, msg):
@@ -24,6 +26,7 @@ if __name__ == '__main__':
     products = ['book', 'alarm clock', 't-shirts', 'gift card', 'batteries']
 
     count = 0
+    producer.begin_transaction()
     for _ in range(10):
 
         user_id = choice(user_ids)
@@ -34,3 +37,4 @@ if __name__ == '__main__':
     # Block until the messages are sent.
     producer.poll(10000)
     producer.flush()
+    producer.commit_transaction()

@@ -1,3 +1,4 @@
 **/obj/**
 **/bin/**
-/python-3.9-env/**
+**/python-3.9-env/**
+**/__pycache__/**

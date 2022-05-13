@@ -11,7 +11,11 @@ class Configuration:
 
         with open('src/python/config.ini') as file_handler:
             self._config_parser.read_file(file_handler)
-            self.default = dict(self._config_parser['default'])
             self.consumer = dict(self._config_parser['consumer'])
-            self.consumer.update(self.default)
+            self.consumer.update(dict(self._config_parser['default']))
+            self.producer = dict(self._config_parser['producer'])
+            self.producer.update(dict(self._config_parser['default']))
             self.custom = dict(self._config_parser['custom_config'])
+            print(self.consumer)
+            print(self.producer)
+            print(self.custom)
