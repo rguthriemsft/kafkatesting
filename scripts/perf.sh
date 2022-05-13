@@ -4,8 +4,10 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 CONFIG="${SCRIPT_DIR}/localhost.config"
 BOOTSTRAP_SERVER=$(grep -oP "bootstrap.servers=\K.*" "${CONFIG}")
+
 TOPIC=perf-test-topic
 PARTITIONS=4
+REPLICAS=2
 
 THROUGHPUT=200
 RECORD_SIZE=1000
@@ -22,7 +24,8 @@ kafka-topics \
     --bootstrap-server "${BOOTSTRAP_SERVER}" \
     --create \
     --topic "${TOPIC}" \
-    --partitions ${PARTITIONS}
+    --partitions ${PARTITIONS} \
+    --replication-factor ${REPLICAS}
 
 kafka-producer-perf-test \
     --producer.config "${CONFIG}" \
