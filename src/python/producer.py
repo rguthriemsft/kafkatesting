@@ -6,12 +6,11 @@ from config import Configuration
 
 if __name__ == '__main__':
 
-    config = Configuration()
-
-    producer = Producer(config.default)
+    base_config = Configuration()
+    producer = Producer(base_config.default)
+    topic = base_config.custom['topic_name']
 
     def delivery_callback(err, msg):
-        """"Callback funciton"""
         if err:
             print('ERROR: Message failed delivery: {}'.format(err))
         else:
@@ -21,7 +20,6 @@ if __name__ == '__main__':
                        value=msg.value().decode('utf-8')))
 
     # Produce data by selecting random values from these lists.
-    TOPIC = "purchases"
     user_ids = ['eabara', 'jsmith', 'sgarcia', 'jbernard', 'htanaka', 'awalther']
     products = ['book', 'alarm clock', 't-shirts', 'gift card', 'batteries']
 
@@ -30,7 +28,7 @@ if __name__ == '__main__':
 
         user_id = choice(user_ids)
         product = choice(products)
-        producer.produce(TOPIC, product, user_id, callback=delivery_callback)
+        producer.produce(topic, product, user_id, callback=delivery_callback)
         count += 1
 
     # Block until the messages are sent.
