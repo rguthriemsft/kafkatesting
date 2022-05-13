@@ -1,0 +1,32 @@
+4
+
+- 1, connect to cluster -> create topic 
+- 2, topic -> create topic
+- 3 
+``` 
+docker exec -it broker bash
+/bin/kafka-topics --bootstrap-server localhost:9092 --create --topic cli-topic --replication-factor 1 --partitions 1
+```
+
+
+5
+- 1
+```
+/bin/kafka-console-producer --bootstrap-server localhost:9092 --topic cli-topic
+```
+- 2
+```
+/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic cli-topic --from-beginning
+# ui: topics -> cli-topic -> messages
+# extension: topics -> cli-topic -> right-click start consumer
+```
+
+6
+- download python 3.9 -> delete existing python symlink -> link 3.9 to python
+- install `python -m pip install confluent-kafka` instead of using default pip
+
+7
+- python producer.py localhost:9092 cli-topic
+
+8
+- python consumer.py localhost:9092 python-group cli-topic 
