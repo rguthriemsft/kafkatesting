@@ -38,10 +38,11 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	"postCreateCommand": ".devcontainer/postCreate.sh",
-	"postStartCommand": ".devcontainer/postStart.sh",
+	"postStartCommand": "docker compose up -d",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
-		"docker-in-docker": "latest"
+		"docker-in-docker": "latest",
+		"java": "lts"
 	}
 }

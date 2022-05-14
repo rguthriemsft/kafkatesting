@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python-Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "${workspaceFolder}/src/python/config/getting_started.ini"
+            ]
+        },
+        {
+            "name": "Debug-Producer",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/python/producer/producer.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "${workspaceFolder}/src/python/config/getting_started.ini"
+            ]
+        },
+        {
+            "name": "Debug-Consumer",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/python/consumer/consumer.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "${workspaceFolder}/src/python/config/getting_started.ini"
+            ]
+        }
+    ]
+}
