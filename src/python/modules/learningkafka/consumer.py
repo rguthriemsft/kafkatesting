@@ -3,7 +3,7 @@ from aiokafka import AIOKafkaConsumer
 import asyncio
 
 
-async def consume():
+async def consume_async() -> str:
     """ consume """
 
     consumer = AIOKafkaConsumer(
@@ -17,11 +17,12 @@ async def consume():
     try:
         # Consume messages
         async for msg in consumer:
-            print("consumed: ", msg.topic, msg.partition, msg.offset,
-                  msg.key, msg.value, msg.timestamp)
+            # print("consumed: ", msg.topic, msg.partition, msg.offset,
+            #      msg.key, msg.value, msg.timestamp)
+            return msg.value
     finally:
         # Will leave consumer group; perform autocommit if enabled.
         await consumer.stop()
 
 if __name__ == "__main__":
-    asyncio.run(consume())
+    asyncio.run(consume_async())

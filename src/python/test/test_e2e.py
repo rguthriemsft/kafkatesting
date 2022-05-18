@@ -1,21 +1,13 @@
 import asyncio
+import learningkafka.consumer as consumer  # noqa: E402
+import learningkafka.producer as producer  # noqa: E402
 
 
-async def count_async():
-    print("One")
-    await asyncio.sleep(1)
-    print("Two")
+def test_simple_e2e_async():
+    consume_task = consumer.consume_async()
+    message = "hello world"
+    result = asyncio.run(producer.send_one_async(message))
+    assert result == 1
 
-    return 1
-
-
-async def gather_async():
-    results = await asyncio.gather(count_async(), count_async(), count_async())
-
-    return results[0] + results[1] + results[2]
-
-
-def test_answer():
-
-    result = asyncio.run(gather_async())
-    assert result == 3
+    result = asyncio.run(consume_task)
+    assert result == bytes(message, "utf8")
