@@ -2,6 +2,7 @@
 from aiokafka import AIOKafkaConsumer
 import asyncio
 
+
 async def consume():
     """ consume """
 

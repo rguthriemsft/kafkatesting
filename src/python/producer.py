@@ -2,6 +2,7 @@
 import asyncio
 from aiokafka import AIOKafkaProducer
 
+
 async def send_one():
     """ async send """
     producer = AIOKafkaProducer(bootstrap_servers='localhost:9092')
