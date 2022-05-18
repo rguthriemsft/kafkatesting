@@ -15,19 +15,22 @@
             "problemMatcher": [],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false
             }
         },
         {
             "label": "pytest",
             "type": "shell",
+            "dependsOn": [
+                "lint"
+            ],
             "command": "pytest",
             "args": [
                 "${workspaceFolder}/src/python/test"
             ],
             "problemMatcher": [],
             "group": {
-                "kind": "test",
+                "kind": "build",
                 "isDefault": true
             }
         }
