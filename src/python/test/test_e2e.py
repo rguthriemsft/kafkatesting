@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import asyncio
 import learningkafka.consumer as consumer  # noqa: E402
 import learningkafka.producer as producer  # noqa: E402

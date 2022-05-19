@@ -1,2 +1,6 @@
+# https://github.com/orgs/aio-libs/repositories
 aiokafka
+aioredis
+hiredis
 pytest
+azure-servicebus
