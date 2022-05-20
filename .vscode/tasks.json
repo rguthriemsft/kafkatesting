@@ -26,7 +26,8 @@
             ],
             "command": "pytest",
             "args": [
-                "${workspaceFolder}/src/python/test"
+                "${workspaceFolder}/src/python/test",
+                "--asyncio-mode=auto"
             ],
             "problemMatcher": [],
             "group": {

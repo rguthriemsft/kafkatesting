@@ -3,4 +3,5 @@ aiokafka
 aioredis
 hiredis
 pytest
+pytest-asyncio
 azure-servicebus
